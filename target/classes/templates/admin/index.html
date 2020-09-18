@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Admin Home</title>
+    <!--    下面行可能有坑-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/custom.css">
+</head>
+<body>
+<!--导航-->
+<nav th:replace="admin/_fragments :: menu(0)" class="ui inverted attach vertical segment c-padded-tb-mini c-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">Blog Admin</h2>
+            <a href="#" class="c-item item c-mobile-hide"> <i class=" home icon"></i>Blogs </a>
+            <a href="#" class="c-item item c-mobile-hide"> <i class=" idea icon"></i>Category </a>
+            <a href="#" class="c-item item c-mobile-hide"> <i class=" tags icon"></i>tag </a>
+            <div class="right c-item  c-mobile-hide menu">
+                <div class="ui dropdown c-item  item">
+                    <div class="text">
+                        <img class="ui avatar image" src="https://picsum.photos/id/800/100/100">
+                        Haonan Huang
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a href="#"  class="item">log out</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button c-right-top c-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--  二级导航-->
+
+<div class="ui attached pointing menu">
+    <div class="ui container">
+        <div class="right menu">
+            <a href="#" th:href="@{/admin/blogs/input}" class="item">New Article</a>
+            <a href="#" th:href="@{/admin/blogs}" class="active item">List</a>
+        </div>
+    </div>
+
+</div>
+
+
+<!--网页中间-->
+<div class="c-container64 c-padded-tb-large">
+    <div class="ui container">
+        <div class="ui success large  message">
+            <h2>Welcome to log in</h2>
+        </div>
+        <img src="https://picsum.photos/id/1026/800/450" alt="" class="ui rounded bordered fluid image">
+    </div>
+</div>
+
+<br>
+<br>
+
+
+
+<!--底部-->
+<footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment c-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../../static/images/QRcode.jpeg" class="ui rounded image" alt="" style="width: 120px">
+                    </div>
+                </div>
+
+            </div>
+            <div class="three wide column">
+
+                <h4 class="ui inverted header">Newest Blog</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item"> User Story</a>
+                    <a href="#" class="item"> User Story</a>
+                    <a href="#" class="item"> User Story</a>
+                </div>
+
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">Contact</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item"> Email: huang15221326@ucla.edu</a>
+                    <a href="#" class="item"> bournsh@gmail.com</a>
+                    <a href="#" class="item"> QQ: 952893554</a>
+                </div>
+
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header">Bourns's Blog</h4>
+                <p class="c-opacity-mini6"> This is my personal blog. I will share my experiences about coding and
+                    algorithms. </p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="c-text-thin c-text-spaced c-opacity-mini">Copyright © 2020 Haonan Huang(Bourns), Designed by Haonan
+            Huang in California</p>
+    </div>
+</footer>
+<!--/*/<th:block th:replace="admin/_fragments :: script">/*/-->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<!--上面行可能有坑 -->
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.c-item').toggleClass('c-mobile-hide')
+    });
+    $('.ui.dropdown').dropdown();
+
+</script>
+</body>
+</html>

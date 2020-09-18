@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories</title>
+    <!--    下面行可能有坑-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/custom.css">
+</head>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu(2)" class="ui inverted attach vertical segment c-padded-tb-mini c-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">Haonan Huang</h2>
+            <a href="#" class="c-item item c-mobile-hide"> <i class=" home icon"></i>Home </a>
+            <a href="#" class="active c-item item c-mobile-hide"> <i class=" idea icon"></i>Category </a>
+            <a href="#" class="c-item item c-mobile-hide"> <i class=" tags icon"></i>tag </a>
+            <a href="#" class="c-item item c-mobile-hide"> <i class=" clone icon"></i>Archive </a>
+            <a href="#" class="c-item item c-mobile-hide"> <i class=" info icon"></i>About Me </a>
+
+            <div class="right c-item item c-mobile-hide">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button c-right-top c-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--网页中间-->
+<div class="c-container64 c-padded-tb-large">
+    <div class="ui container">
+        <!--        头部-->
+        <div class="ui top attached  segment">
+            <div class="ui middle aligned two column grid">
+                <div class="column"><h2 class="ui orange header">Category</h2></div>
+                <div class="right aligned column"><h3 class="ui orange header c-inline-block c-text-thin" th:text="${#arrays.length(types)}">14</h3>
+                    categories
+                </div>
+            </div>
+        </div>
+
+        <div class="ui attached segment c-padded-tb-small ">
+            <div class="ui labeled button c-margin-tb-tiny" th:each="type : ${types}">
+                <a href="#" th:href="@{/types/{id}(id=${type.id})}" class="ui  button" th:classappend="${type.id==activeTypeId} ? 'orange'" th:text="${type.name}">Category 1</a>
+                <div class="ui basic  left pointing label" th:classappend="${type.id==activeTypeId} ? 'orange'" th:text="${#arrays.length(type.blogs)}">1</div>
+            </div>
+            <!--/*-->
+            <div class="ui labeled button c-margin-tb-tiny ">
+                <a href="#" class="ui basic  button">Category 2</a>
+                <div class="ui basic  left pointing label">2</div>
+            </div>
+            <!--*/-->
+        </div>
+
+        <div class="ui top attached orange segment">
+            <!--        首页"中间内容"，这里是文章-->
+            <div class="ui padded vertical segment c-padded-tb-small" th:each="blog : ${page.content}">
+                <div class="ui mobile reversed stackable grid" >
+                    <!--                  左边11份-->
+                    <div class="ui eleven wide column">
+                        <h3 class="ui header"><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="c-black" th:text="${blog.title}">HeadLine1</a></h3>
+                        <p class="c-text-1" th:text="|${blog.description}......|">ContentContentContent Conte</p>
+                        <div class="ui grid">
+                            <!--                      头像，更新时间，浏览次数-->
+                            <div class="eleven wide column">
+                                <div class="ui mini horizontal link list">
+
+                                    <!--                          图片，名字，日期-->
+                                    <div class="item">
+                                        <img src="https://picsum.photos/id/1024/800/450" th:src="@{${blog.user.avatar}}"  alt=""
+                                             class="ui avatar image" >
+                                        <div class="content"><a class="header" th:text="${blog.user.nickname}">Haonan</a></div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime, 'yyyy-MM-dd')}">2020-08-18</span>
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i><span th:text="${blog.views}"> </span>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--                      tag-->
+                            <div class="right aligned five wide column">
+                                <a target="_blank" class="ui orange label " th:text="${blog.type.name}">Category</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                  右边5份-->
+                    <div class="ui five wide column">
+                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                            <img src="https://picsum.photos/id/1024/800/450" th:src="@{${blog.firstPicture}}" alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--/*-->
+            <div class="ui padded vertical segment c-padded-tb-small">
+                <div class="ui mobile reversed stackable grid">
+                    <!--                  左边11份-->
+                    <div class="ui eleven wide column">
+                        <h3 class="ui header">HeadLine1</h3>
+                        <p class="c-text-1">ContentContentContentConte ContentContentContentConte
+                            ContentContentContentConte ContentContentContentConte ContentContentContentConte</p>
+                        <div class="ui stackable grid">
+                            <!--                      头像，更新时间，浏览次数-->
+                            <div class="eleven wide column">
+                                <div class="ui mini horizontal link list">
+
+                                    <!--                          图片，名字，日期-->
+                                    <div class="item">
+                                        <img src="https://picsum.photos/id/1024/800/450" alt="" class="ui avatar image">
+                                        <div class="content"><a class="header">Haonan</a></div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar icon"></i>2020-08-18
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i>0
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--                      tag-->
+                            <div class="right aligned five wide column">
+                                <a href="#" target="_blank" class="ui teal basic label c-opacity-mini6">Tag</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                  右边5份-->
+                    <div class="ui five wide column">
+                        <a href="#" target="_blank">
+                            <img src="https://picsum.photos/id/1024/800/450" alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui padded vertical segment c-padded-tb-small">
+                <div class="ui mobile reversed stackable grid">
+                    <!--                  左边11份-->
+                    <div class="ui eleven wide column">
+                        <h3 class="ui header">HeadLine1</h3>
+                        <p class="c-text-1">ContentContentContentConte ContentContentContentConte
+                            ContentContentContentConte ContentContentContentConte ContentContentContentConte</p>
+                        <div class="ui stackable grid">
+                            <!--                      头像，更新时间，浏览次数-->
+                            <div class="eleven wide column">
+                                <div class="ui mini horizontal link list">
+
+                                    <!--                          图片，名字，日期-->
+                                    <div class="item">
+                                        <img src="https://picsum.photos/id/1024/800/450" alt="" class="ui avatar image">
+                                        <div class="content"><a class="header">Haonan</a></div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar icon"></i>2020-08-18
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i>0
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--                      tag-->
+                            <div class="right aligned five wide column">
+                                <a href="#" target="_blank" class="ui teal basic label c-opacity-mini6">Tag</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                  右边5份-->
+                    <div class="ui five wide column">
+                        <a href="#" target="_blank">
+                            <img src="https://picsum.photos/id/1024/800/450" alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="ui padded vertical segment c-padded-tb-small">
+                <div class="ui mobile reversed stackable grid">
+                    <!--                  左边11份-->
+                    <div class="ui eleven wide column">
+                        <h3 class="ui header">HeadLine1</h3>
+                        <p class="c-text-1">ContentContentContentConte ContentContentContentConte
+                            ContentContentContentConte ContentContentContentConte ContentContentContentConte</p>
+                        <div class="ui stackable grid">
+                            <!--                      头像，更新时间，浏览次数-->
+                            <div class="eleven wide column">
+                                <div class="ui mini horizontal link list">
+
+                                    <!--                          图片，名字，日期-->
+                                    <div class="item">
+                                        <img src="https://picsum.photos/id/1024/800/450" alt="" class="ui avatar image">
+                                        <div class="content"><a class="header">Haonan</a></div>
+                                    </div>
+                                    <div class="item">
+                                        <i class="calendar icon"></i>2020-08-18
+                                    </div>
+                                    <div class="item">
+                                        <i class="eye icon"></i>0
+                                    </div>
+
+                                </div>
+                            </div>
+                            <!--                      tag-->
+                            <div class="right aligned five wide column">
+                                <a href="#" target="_blank" class="ui teal basic label c-opacity-mini6">Tag</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--                  右边5份-->
+                    <div class="ui five wide column">
+                        <a href="#" target="_blank">
+                            <img src="https://picsum.photos/id/1024/800/450" alt="" class="ui rounded image">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--*/-->
+
+
+        </div>
+
+<!--        <div class="ui bottom attached segment">-->
+<!--            <div class="ui middle aligned two column grid">-->
+<!--                <div class="column"><a href="#" class="ui teal basic button">Last Page</a></div>-->
+<!--                <div class="right aligned column"><a href="#" class="ui teal basic button">Next Page</a></div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
+            <div class="ui middle aligned two column grid">
+                <div class="column">
+                    <a href="#" th:href="@{/(page=${page.number}-1)}"  th:unless="${page.first}" class="ui teal basic button">Last Page</a>
+                </div>
+                <div class="right aligned column">
+                    <a href="#" th:href="@{/(page=${page.number}+1)}"  th:unless="${page.last}" class="ui teal basic button">Next Page</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<br>
+<br>
+
+
+
+<!--底部-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment c-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/QRcode.jpeg" class="ui rounded image" alt="" style="width: 120px">
+                    </div>
+                </div>
+
+            </div>
+            <div class="three wide column">
+
+                <h4 class="ui inverted header">Newest Blog</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item"> User Story</a>
+                    <a href="#" class="item"> User Story</a>
+                    <a href="#" class="item"> User Story</a>
+                </div>
+
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">Contact</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item"> Email: huang15221326@ucla.edu</a>
+                    <a href="#" class="item"> bournsh@gmail.com</a>
+                    <a href="#" class="item"> QQ: 952893554</a>
+                </div>
+
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header">Bourns's Blog</h4>
+                <p class="c-opacity-mini6"> This is my personal blog. I will share my experiences about coding and
+                    algorithms. </p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="c-text-thin c-text-spaced c-opacity-mini">Copyright © 2020 Haonan Huang(Bourns), Designed by Haonan
+            Huang in California</p>
+    </div>
+</footer>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<script src="../static/lib/prism/prism.js"></script>
+<script src="../static/lib/waypoint/jquery.waypoints.min.js"></script>
+<!--/*/</th:block>/*/-->
+
+<script>
+    $('.menu.toggle').click(function () {
+        $('.c-item').toggleClass('c-mobile-hide')
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+/*背景*/
+body{
+    background: url("../images/bg4.jpg");
+    background-attachment:fixed;
+    background-size: cover;
+    no-repeat: center top ;
+    height: 100%;
+    width: 100%;
+    opacity: 96%;
+}
+
+/**/
+.c-padded-mini {
+    padding: 0.2em !important;
+}
+
+.c-padded-small {
+    padding: 0.4em !important;
+}
+
+.c-padded-medium {
+    padding: 0.6em !important;
+}
+
+.c-padded-large {
+    padding: 0.8em !important;
+}
+
+.c-padded-tb-mini {
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+
+.c-padded-tb-massive {
+    padding-top: 5em !important;;
+    padding-bottom: 5em !important;
+}
+
+.c-padded-tb-large {
+    padding-top: 4em !important;;
+    padding-bottom: 4em !important;
+}
+
+.c-padded-tb-medium {
+    padding-top: 3em !important;;
+    padding-bottom: 3em !important;
+}
+
+.c-padded-tb-small {
+    padding-top: 2em !important;;
+    padding-bottom: 2em !important;
+}
+
+.c-padded-tb-mini {
+    padding-top: 1em !important;;
+    padding-bottom: 1em !important;
+}
+
+.c-padded-lr {
+    padding-left: 4em !important;
+    padding-right: 4em !important;
+}
+
+
+/*设置字体*/
+.c-text-thin {
+    font-weight: 300 !important;
+}
+
+.c-text-1 {
+    font-weight: 300 !important;
+    letter-spacing: 0.6px !important;
+    line-height: 1.8;
+
+}
+
+.c-text-spaced {
+    letter-spacing: 0.6px !important;
+}
+
+.c-text-lined {
+    line-height: 1.8;
+}
+
+/*透明度*/
+.c-opacity-mini {
+    opacity: 0.8 !important;
+}
+
+.c-opacity-mini95 {
+    opacity: 0.95 !important;
+}
+
+.c-opacity-mini6 {
+    opacity: 0.6 !important;
+}
+
+/*显示属性*/
+.c-inline-block {
+    display: inline-block !important;
+}
+
+.c-container {
+    max-width: 75em !important;
+    margin: auto !important;
+}
+
+.c-container64 {
+    max-width: 64em !important;
+    margin: auto !important;
+}
+
+.c-shadow-small {
+    -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+}
+
+/*margin*/
+.c-margin-tb-tiny {
+    margin-top: 0.3em !important;
+    margin-bottom: 0.3em !important;
+}
+
+.c-margin-top-small {
+    margin-top: 0.5em !important;
+}
+
+.c-margin-top-medium {
+    margin-top: 1em !important;
+}
+
+.c-margin-top-big {
+    margin-top: 2em !important;
+}
+
+
+/*颜色*/
+.c-black {
+    color: #333 !important;
+}
+
+/*位置*/
+.c-right-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.c-mobile-show {
+    display: none !important;
+}
+
+@media screen and (max-width: 768px) {
+    .c-mobile-hide {
+        display: none !important;
+    }
+
+    .c-mobile-show {
+        display: block !important;
+    }
+
+    .c-padded-lr-responsive {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .c-mobile-wide {
+        width: 100% !important;
+    }
+
+    .c-mobile-lr-clear {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    .c-margin-bottom-mini {
+
+    }
+}
+
+/*位置*/
+.c-fixed {
+    position: fixed !important;
+    z-index: 10 !important;
+
+}
+
+.c-right-bottom {
+    bottom: 0 !important;
+    right: 0 !important
+}
+
+.c-font-size-text-init-title{
+    font-size: 24px;
+    color: #000000;
+    align-content: center;
+    font-family:'STXingkai';
+}
