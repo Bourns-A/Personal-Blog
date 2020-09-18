@@ -9,3 +9,5 @@ Persistence Layer: JPA
 Back-end: SpringBoot, Java
 
 Database: MySQL
+
+Address: http://49.234.117.23:8080/about
